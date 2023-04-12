@@ -30,3 +30,14 @@ Ahora imaginamos que tenemos el caso en el que la ciudad es un valor variable en
 ```
 CHECK ciudad IN ( 'Malaga','Granada','Almeria')
 ```
+Usamos el comando `DESCRIBE` para obtener una descripción de la tabla 
+Para la creación de la tabla "ventas" donde hay varias claves primarias se especifica de la forma: 
+```
+CREATE TABLE ventas  (
+    codpro CONSTRAINT codpro_clave_externa_proveedor REFERENCES  proveedor(codpro),
+    codpie CONSTRAINT codpie_clave_externa_pieza REFERENCES  pieza(codpie),
+    codpj CONSTRAINT codpj_clave_externa_proyecto REFERENCES proyecto(codpj),
+    cantidad NUMBER(4),
+    CONSTRAINT clave_primaria PRIMARY KEY (codpro,codpie,codpj));
+```
+*Donde estamos especificando las claves primarias al final, se hace así. Las referencias externas se hacen con REFERENCES especificando la tabla y el atributo*
