@@ -25,7 +25,8 @@ CREATE TABLE proveedor (
     ciudad VARCHAR2(15));
 ```
 *Se puede usar CONSTRAINT cada vez que se use una restricción de integridad, que sirve para cambiar el mensaje de error que ocurre cuando se viola la restricción que tiene asociada* 
-*Podríamos usar CHECK ( status between 1 and 10 )* 
+*Podríamos usar CHECK ( status between 1 and 10 )*  
+
 Ahora imaginamos que tenemos el caso en el que la ciudad es un valor variable en una cadena determinada, usamos: 
 ```
 CHECK ciudad IN ( 'Malaga','Granada','Almeria')
@@ -33,11 +34,17 @@ CHECK ciudad IN ( 'Malaga','Granada','Almeria')
 Usamos el comando `DESCRIBE` para obtener una descripción de la tabla 
 Para la creación de la tabla "ventas" donde hay varias claves primarias se especifica de la forma: 
 ```
-CREATE TABLE ventas  (
+CREATE TABLE ventas (
     codpro CONSTRAINT codpro_clave_externa_proveedor REFERENCES  proveedor(codpro),
     codpie CONSTRAINT codpie_clave_externa_pieza REFERENCES  pieza(codpie),
     codpj CONSTRAINT codpj_clave_externa_proyecto REFERENCES proyecto(codpj),
     cantidad NUMBER(4),
     CONSTRAINT clave_primaria PRIMARY KEY (codpro,codpie,codpj));
 ```
-*Donde estamos especificando las claves primarias al final, se hace así. Las referencias externas se hacen con REFERENCES especificando la tabla y el atributo*
+*Donde estamos especificando las claves primarias al final, se hace así. Las referencias externas se hacen con REFERENCES especificando la tabla y el atributo. NO HEMOS ESPECIFICADO EL TIPO DE DATO PORQUE PILLA EL DE LA CLAVE EXTERNA*  
+
+En el caso de que haya externas compuestas se hace: 
+```
+FOREING KEY ( _ , _ ) REFERENCES ...
+```
+Ahora inserto los valores especificados en el archivo insert.sql

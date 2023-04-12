@@ -26,7 +26,7 @@ CREATE TABLE proyecto(
 ```
 Tabla ventas
 ```
-CREATE TABLE ventas  (
+CREATE TABLE ventas (
     codpro CONSTRAINT codpro_clave_externa_proveedor REFERENCES  proveedor(codpro),
     codpie CONSTRAINT codpie_clave_externa_pieza REFERENCES  pieza(codpie),
     codpj CONSTRAINT codpj_clave_externa_proyecto REFERENCES proyecto(codpj),
