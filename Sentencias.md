@@ -33,3 +33,7 @@ CREATE TABLE ventas (
     cantidad NUMBER(4),
     CONSTRAINT clave_primaria PRIMARY KEY (codpro,codpie,codpj));
 ```
+Copiar tabla y pegar en ventas HACER CUANDO TERMINEMOS DE RELLENAR TODAS LAS TABLAS
+```
+INSERT INTO ventas (SELECT codpro, codpie, codpj cantidad from opc.ventas);
+```
