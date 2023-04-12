@@ -3,6 +3,8 @@ Para cambiar la contraseña en el sistema gestor de base de datos, ejecutamos el
 ``` 
 ALTER USER x______ IDENTIFIED BY ________;
 ```
+
+Los tipos dedatos disponibles son:
 | Tipo de dato | Descripcion| 
 |:--------------------------------------------------------:|:--------------------------------------------:|
 | INT ó INTEGER ó NUMERIC REAL ó FLOAT | Enteros con signo (su rango depende del sistema). Datos numéricos en coma flotante.|
@@ -16,6 +18,15 @@ ALTER USER x______ IDENTIFIED BY ________;
 
 Para crear una tabla usamos la cadena: 
 ```
-CREATE TABLE proveedor ( );
+CREATE TABLE proveedor (
+    codpro VARCHAR2(3) CONSTRAINT codpro_clave_primaria PRIMARY KEY,
+    nompro VARCHAR2(30) CONSTRAINT nompro_no_nulo NOT NULL,
+    status NUMBER CONSTRAINT status_entre_1_y_10 CHECK (status>=1 and status<=10),
+    ciudad VARCHAR2(15));
 ```
-*italic* 
+*Se puede usar CONSTRAINT cada vez que se use una restricción de integridad, que sirve para cambiar el mensaje de error que ocurre cuando se viola la restricción que tiene asociada* 
+*Podríamos usar CHECK ( status between 1 and 10 )* 
+Ahora imaginamos que tenemos el caso en el que la ciudad es un valor variable en una cadena determinada, usamos: 
+```
+CHECK ciudad IN ( 'Malaga','Granada','Almeria')
+```
