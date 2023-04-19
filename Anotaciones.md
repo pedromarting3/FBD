@@ -85,3 +85,19 @@ Hacemos el producto cartesiano de las dos tablas y hacemos que el producto carte
 ```
 SELECT * FROM ventas,proveedor WHERE ventas.codpro=proveedor.codpro
 ```
+Para asignar una especie de alias a las tablas hacemos:
+```
+SELECT * FROM ventas v,proveedor p WHERE v.codpro=p.codpro
+```
+Nombre y ciudades de los proveedores que han vendido la pieza P2
+```
+SELECT proveedor.nompro,ciudad FROM ventas,proveedor WHERE (ventas.codpro=proveedor.codpro and ventas.codpie='P2');
+```  
+EJERCICIOS PARA PRACTICAR PÁGINA 34 EN ADELANTE:
+* 3.2
+* 3.3
+* 3.4
+* 3.5
+* 3.6
+* 3.12
+* 3.13
