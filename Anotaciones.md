@@ -47,9 +47,15 @@ En el caso de que haya externas compuestas se hace:
 ```
 FOREING KEY ( _ , _ ) REFERENCES ...
 ```
-Ahora inserto los valores especificados en el archivo insert.sql
+Ahora inserto los valores especificados en el archivo insert.sql  
+
+*** Clase 19/04/2023
 
 Cuando queremos que se guarden los datos hacemos 
 ```
 COMMIT
+```
+Seguimos explicando la sentencia WHERE para expresar la condición de lo que queremos obtener en la base de datos
+```
+SELECT _ FROM _ WHERE (condicion)
 ```
