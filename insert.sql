@@ -21,3 +21,6 @@ INSERT INTO proyecto VALUES ('J4', 'Proyecto 4', 'Roma');
 /* INSERTAMOS DESDE LA TABLA DE LA TICHER los valores que queremos*/
 INSERT INTO ventas (SELECT codpro,codpie,codpj,cantidad FROM opc.ventas);
 
+/* EJEMPLO DE WHERE*/
+SELECT * FROM ventas WHERE (cantidad BETWEEN 1 and 10);
+SELECT * FROM pieza WHERE LOWER(nompie) LIKE '%a%';

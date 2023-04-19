@@ -59,3 +59,25 @@ Seguimos explicando la sentencia WHERE para expresar la condición de lo que que
 ```
 SELECT _ FROM _ WHERE (condicion)
 ```
+Otras opciones que pueden ir acompañadas con el WHERE son:  
+* ```
+    SELECT _ FROM _ WHERE (atributo in (<lista>)())
+    ```
+* ```
+    SELECT _ FROM _ WHERE (atributo BETWEEN 1 and 10)
+    ``` 
+* Si pongo el % equivale a cualquier valor, ejemplo para palabra que contiene la a en medio: (el UPPER es para poner todo en mayuscula)
+    ```
+    SELECT * FROM ventas WHERE UPPER(atributo LIKE '%A%')
+    ```
+*   ```
+    SELECT * FROM pieza WHERE color IS NULL
+    ```
+Imaginamos que queremos ver una sola vez los datos, usamos: 
+```
+SELECT DISTINCT codpro from ventas
+```
+Nuevas operaciones con select
+```
+SELECT cantidad * 10/365 FROM ventas
+```
