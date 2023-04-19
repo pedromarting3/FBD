@@ -81,3 +81,7 @@ Nuevas operaciones con select
 ```
 SELECT cantidad * 10/365 FROM ventas
 ```
+Hacemos el producto cartesiano de las dos tablas y hacemos que el producto cartesiano coincida
+```
+SELECT * FROM ventas,proveedor WHERE ventas.codpro=proveedor.codpro
+```
