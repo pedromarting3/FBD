@@ -48,3 +48,8 @@ En el caso de que haya externas compuestas se hace:
 FOREING KEY ( _ , _ ) REFERENCES ...
 ```
 Ahora inserto los valores especificados en el archivo insert.sql
+
+Cuando queremos que se guarden los datos hacemos 
+```
+COMMIT
+```

@@ -12,8 +12,12 @@ INSERT INTO pieza VALUES ('P3', 'Arandela','Blanco',3, 'Londres');
 INSERT INTO pieza VALUES ('P4', 'Clavo','Gris',5.5, 'Lisboa');
 INSERT INTO pieza VALUES ('P5', 'Alcayata','Blanco',10, 'Roma');
 
-/*TABLA DE PROYECTO */
+/* TABLA DE PROYECTO */
 INSERT INTO proyecto VALUES ('J1', 'Proyecto 1', 'Londres');
 INSERT INTO proyecto VALUES ('J2', 'Proyecto 2', 'Londres');
 INSERT INTO proyecto VALUES ('J3', 'Proyecto 3', 'Paris');
 INSERT INTO proyecto VALUES ('J4', 'Proyecto 4', 'Roma');
+
+/* INSERTAMOS DESDE LA TABLA DE LA TICHER los valores que queremos*/
+INSERT INTO ventas (SELECT codpro,codpie,codpj,cantidad FROM opc.ventas);
+
