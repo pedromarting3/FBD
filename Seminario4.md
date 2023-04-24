@@ -71,4 +71,12 @@ Alumnos matriculados en FBD1 y FIS
 Subconjunto 1 : {1,2,3,4,5,6,7}  
 Subconjunto 2 : {5,7,4,9}  
 Resultado diferencia: {1,2,3,6}  
-Un ejemplo en la vida real serían los Alumnos que están en FIS y no en FBD
+Un ejemplo en la vida real serían los Alumnos que están en FIS y no en FBD. ESTE OPERADOR ES ÚTIL CUANDO NO SE REPITEN LOS VALORES DE LAS CLAVES PRIMARIAS
+
+------------
+### Ejemplos varios
+Ya se pueden hacer los 10 primeros ejercicios de la relación de prado. Comenzamos haciendo algunos ejemplos:  
+Encontrar nombre de las asignaturas que no tengan ningún alumno matriculado 
+```
+π nom_asig ((π cod_asig(asigal) - π cod_asig(σ(curso_acad='2023')(matricula))) ⋈ asignaturas)
+```
