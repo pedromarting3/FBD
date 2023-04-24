@@ -44,3 +44,31 @@ La notación es x, hace todas las combinaciones posibles de los elementos de un 
 π director (nom_prof='Olga Pons') ^ (departamento.cod_dep=profesores.cod_dep)(profesores x departamento)
 ```
 *el ^ es equivalente a and*
+
+-------------
+### 4.Reunión Natural
+La notación es ⋈, consigue imponer coherencia entre la eequivalencia de las claves primarias de dos tablas para que haya paridad entre los datos. El criterio que va a utilizar es que los nombres de los atributos a reunir sean los mismos. Un ejemplo de consulta es: 
+```
+T1 ⋈ T2
+```
+Y un ejemplo para reunir imparte con profesor:
+```
+imparte ⋈ profesor
+```
+Donde emparejaría las dos tablas igualando el dni (en este caso)  
+Ejemplo hecho en clase:  
+Nombre y correo de los alumnos matriculados en la asignatura FBD en el curso 2023
+```
+π email,nombre_al(σ(cod_asig='FBD')^(curso_acad='2023')(alumnos ⋈ matricula)) ⋈ asignaturas
+```
+-------------
+### 5.Unión Conjunto Y Diferencia 
+* La notación de unión es ∪, coge todos los elementos y no repite los repetidos. Para aplicarlos a tablas, ambas deben de ser idénticas salvo el nombre de los atributos, si recordamos una situación parecida en clase nos pasó cuando queríamos volcar la tabla de la profesora en la nuestra y no podíamos porque la suya tenía más columnas. En el caso de que ambas tablas tengan diferentes nombres de columnas toman el nombre de la primera tabla.  Usamos un ejemplo:  
+Alumnos matriculados en FBD1 o en FIS  
+* La notación del conjunto es ∩, y coge los elementos en común de dos tablas. Por ejemplo:  
+Alumnos matriculados en FBD1 y FIS
+* La notación de la diferencia es - . Se usa para realizar el subconjunto de los elementos del primer subconjunto que no están presentes en el segundo subconjunto. Por ejemplo:  
+Subconjunto 1 : {1,2,3,4,5,6,7}  
+Subconjunto 2 : {5,7,4,9}  
+Resultado diferencia: {1,2,3,6}  
+Un ejemplo en la vida real serían los Alumnos que están en FIS y no en FBD
