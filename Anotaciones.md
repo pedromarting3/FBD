@@ -115,3 +115,15 @@ La sentencia UPDATE actualiza el contenido de una tabla, un ejemplo de uso es:
 UPDATE ventas SET fecha = fecha+30
 ```
 *La fecha en oracle son numeros enteros así que al sumarle añadimos 30*
+### Comando unión, intersección y diferencia
+* UNION en sql, lleva detrás or
+* INTERSECT en sql
+* MINUS en sql  
+
+Hacemos algunos ejemplos: 
+* Listar las piezas blancas que han sido vendidas por S2 
+    ```
+    SELECT codpie FROM pieza WHERE UPPER(color)='BLANCO' INTERSECT SELECT codpie FROM ventas WHERE codpro='S2';
+    ```
+    *Usamos intersect para encontrar la intersección de los dos subconjuntos*
+### Subconsultas
