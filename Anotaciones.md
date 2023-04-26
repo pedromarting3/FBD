@@ -93,11 +93,24 @@ Nombre y ciudades de los proveedores que han vendido la pieza P2
 ```
 SELECT proveedor.nompro,ciudad FROM ventas,proveedor WHERE (ventas.codpro=proveedor.codpro and ventas.codpie='P2');
 ```  
-EJERCICIOS PARA PRACTICAR PÁGINA 34 EN ADELANTE:
-* 3.2
-* 3.3
-* 3.4
-* 3.5
-* 3.6
-* 3.12
-* 3.13
+Commit -> guarda lo que hemos hecho
+Rollback -> deshace el último cambio
+### Explicamos la sentencia DELETE
+Delete hace el vaciado de una tabla (no la elimina)
+El comando que elimina una tabla es drop table
+Un ejemplo de delete es:
+```
+DELETE ventas WHERE codpro='S1';
+```
+### Sentencia ALTER 
+Nos permite alterar el esquema de una tabla, en el caso de que queramos añadir fecha a ventas:
+```
+ALTER TABLE ventas ADD(fecha date default sysdate);
+```
+*sysdate nos da la fecha del sistema*
+### Sentencia UPDATE
+La sentencia UPDATE actualiza el contenido de una tabla, un ejemplo de uso es:
+```
+UPDATE ventas SET fecha = fecha+30
+```
+*La fecha en oracle son numeros enteros así que al sumarle añadimos 30*

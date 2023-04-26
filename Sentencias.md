@@ -37,3 +37,33 @@ Copiar tabla y pegar en ventas HACER CUANDO TERMINEMOS DE RELLENAR TODAS LAS TAB
 ```
 INSERT INTO ventas (SELECT codpro, codpie, codpj cantidad from opc.ventas);
 ```
+EJERCICIOS PARA PRACTICAR PÁGINA 34 EN ADELANTE:
+3.2 Muestra los suministros realizados (tan solo los códigos de los componentes de una venta). ¿Es necesario utilizar DISTINCT? 
+```
+SELECT DISTINCT codpj FROM ventas;
+```
+3.3 Muestra las piezas de Madrid que son grises o rojas
+```
+SELECT codpie FROM pieza WHERE ciudad='Madrid' and (color='Gris' or color='Rojo');
+```
+3.4 Encontrar todos los suministros cuya cantidad está entre 200 y 300, ambos inclusive.
+```
+SELECT * FROM ventas WHERE 200<=cantidad and cantidad<=300;
+```
+3.5 Mostrar las piezas que contengan la palabra tornillo con la t en mayúscula o en minúscula. 
+```
+SELECT * FROM pieza WHERE nompie LIKE '_ornillo';
+```
+3.6  Comprueba que no devuelve ninguna. Pero SI que hay!!!. Prueba a usar la función upper() comparando con ’VENTAS’ o la función lower()comparando con ’ventas’ 
+```
+SELECT * FROM pieza WHERE UPPER(nompie LIKE 'tornillo');
+SELECT * FROM pieza WHERE LOWER(nompie LIKE 'tornillo');
+```
+3.12  Mostrar las ternas que son de la misma ciudad pero que hayan realizado alguna venta.
+```
+SELECT codpro,codpie,codpj FROM ventas INTERSECT SELECT DISTINCT codpro,codpie,codpj FROM proveedor,pieza,proyecto WHERE proveedor.ciudad = pieza.cidad AND proveedor.ciudad = proyecto.ciudad AND pieza.ciudad = proyecto.ciudad;
+```
+3.13 Encontrar parejas de proveedores que no viven en la misma ciudad.
+```
+SELECT p.codpro,p.ciudad,s.codpro,s.ciudad FROM proveedor p,proveedor s WHERE p.ciudad != s.ciudad AND (p.codpro < s.codpro);
+```
