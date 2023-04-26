@@ -161,4 +161,15 @@ Oracle maneja internamente las fechas como números enteros. Tienen que tener el
 ```
 INSERT INTO ventas VALUES ('S4','P5','J3',200,TO_DATE('03/08/1998','dd/mm/yyyy'));
 ```
-*Donde después de la coma estamos especificando el formato en el que le estamos pasando la fecha*
+*Donde después de la coma estamos especificando el formato en el que le estamos pasando la fecha*  
+El problema que nos encontramos ahora es que al insertar 1998 y hacer una consulta nos aparece 98. Este 98 no sabemos exactamente de qué año es. Para saber el año exactamente usamos:
+```
+SELECT codpro,codpie,to_char(fecha,'day,dd "de" Month "de" yyyy') FROM ventas;
+```
+Cuyo resultado es:  
+S2  P2  miércoles,22 de Junio      de 2022
+
+----------
+EJERCICIOS PARA HACER
+ 
+Todos los del cuaderno hasta división
