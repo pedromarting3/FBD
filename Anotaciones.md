@@ -102,6 +102,7 @@ Un ejemplo de delete es:
 ```
 DELETE ventas WHERE codpro='S1';
 ```
+*Para asegurarnos que una fila sea borrada ponemos en el WHERE la clave primaria*
 ### Sentencia ALTER 
 Nos permite alterar el esquema de una tabla, en el caso de que queramos añadir fecha a ventas:
 ```
