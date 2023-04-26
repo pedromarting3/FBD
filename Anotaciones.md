@@ -94,7 +94,9 @@ Nombre y ciudades de los proveedores que han vendido la pieza P2
 SELECT proveedor.nompro,ciudad FROM ventas,proveedor WHERE (ventas.codpro=proveedor.codpro and ventas.codpie='P2');
 ```  
 Commit -> guarda lo que hemos hecho
-Rollback -> deshace el último cambio
+Rollback -> deshace el último cambio  
+
+-----------------
 ### Explicamos la sentencia DELETE
 Delete hace el vaciado de una tabla (no la elimina)
 El comando que elimina una tabla es drop table
@@ -103,18 +105,24 @@ Un ejemplo de delete es:
 DELETE ventas WHERE codpro='S1';
 ```
 *Para asegurarnos que una fila sea borrada ponemos en el WHERE la clave primaria*
+
+-----------------
 ### Sentencia ALTER 
 Nos permite alterar el esquema de una tabla, en el caso de que queramos añadir fecha a ventas:
 ```
 ALTER TABLE ventas ADD(fecha date default sysdate);
 ```
 *sysdate nos da la fecha del sistema*
+
+-----------------
 ### Sentencia UPDATE
 La sentencia UPDATE actualiza el contenido de una tabla, un ejemplo de uso es:
 ```
 UPDATE ventas SET fecha = fecha+30
 ```
 *La fecha en oracle son numeros enteros así que al sumarle añadimos 30*
+
+---------------
 ### Comando unión, intersección y diferencia
 * UNION en sql, lleva detrás or
 * INTERSECT en sql
@@ -126,4 +134,31 @@ Hacemos algunos ejemplos:
     SELECT codpie FROM pieza WHERE UPPER(color)='BLANCO' INTERSECT SELECT codpie FROM ventas WHERE codpro='S2';
     ```
     *Usamos intersect para encontrar la intersección de los dos subconjuntos*
-### Subconsultas
+
+---------------
+### Cálculos y estadísticas
+* max
+* min
+* avg
+* stdev
+* sum
+* count
+```
+SELECT max(cantidad) from ventas;
+```
+Para contar los colores diferentes en las piezas: 
+```
+SELECT count(distinct color) FROM pieza;
+```
+Contamos las filas que tiene una tabla
+```
+SELECT count(*) FROM ventas;
+```
+
+------------------
+### Fechas 
+Oracle maneja internamente las fechas como números enteros. Tienen que tener el formato dd/mm/yy y esto es un problema, en el caso de que queramos añadir fechas de otro siglo necesitamos usar la función TO_DATE sobre la columna fecha. Un ejemplo:
+```
+INSERT INTO ventas VALUES ('S4','P5','J3',200,TO_DATE('03/08/1998','dd/mm/yyyy'));
+```
+*Donde después de la coma estamos especificando el formato en el que le estamos pasando la fecha*
