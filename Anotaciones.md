@@ -169,7 +169,3 @@ SELECT codpro,codpie,to_char(fecha,'day,dd "de" Month "de" yyyy') FROM ventas;
 Cuyo resultado es:  
 S2  P2  miércoles,22 de Junio      de 2022
 
-----------
-EJERCICIOS PARA HACER
- 
-Todos los del cuaderno hasta división
